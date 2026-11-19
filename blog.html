@@ -3,22 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog | Valencia Hull Care — Mantenimiento Náutico en Valencia</title>
+    <title>Guías de limpieza y mantenimiento náutico | Valencia Hull Care</title>
     <meta
       name="description"
-      content="Artículos sobre limpieza de cascos, mantenimiento náutico, puertos deportivos en Valencia y consejos para el cuidado de tu embarcación en el Mediterráneo."
+      content="Guías para cuidar el casco de tu barco en Valencia. Frecuencia de limpieza, antifouling, incrustaciones, puertos y mantenimiento."
     />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://valenciahullcare.com/blog.html" />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23000000'/><text x='50%25' y='50%25' font-family='Georgia,serif' font-size='17' font-weight='700' fill='%23c8a020' text-anchor='middle' dominant-baseline='central'>V</text></svg>"
-    />
+    <link rel="canonical" href="https://limpieza-cascos.vercel.app/blog.html" />
+    <link rel="icon" type="image/svg+xml" href="images/vhc.svg" />
+    <meta name="theme-color" content="#060e12" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Valencia Hull Care" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://limpieza-cascos.vercel.app/blog.html" />
+    <meta property="og:title" content="Guías de limpieza y mantenimiento náutico | Valencia Hull Care" />
+    <meta property="og:description" content="Guías para cuidar el casco de tu barco en Valencia. Frecuencia de limpieza, antifouling, incrustaciones, puertos y mantenimiento." />
+    <meta property="og:image" content="https://limpieza-cascos.vercel.app/images/valencia-hull-care-social.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ilustración de un buzo limpiando el casco de un velero" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&amp;family=Inter:wght@300..800&amp;display=swap" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
     <!-- ========== NAVBAR ========== -->
     <nav class="navbar" id="navbar">
@@ -47,7 +58,7 @@
           </div>
           <div class="nav__right">
             <div class="lang-selector">
-              <button class="lang-btn" id="langBtn" aria-label="Seleccionar idioma">
+              <button class="lang-btn" id="langBtn" aria-controls="langDropdown" aria-expanded="false" aria-label="Seleccionar idioma">
                 <span id="activeLang">ES</span>
                 <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
               </button>
@@ -59,7 +70,7 @@
                 <a href="#" class="lang-option" data-lang="de">🇩🇪 DE — Deutsch</a>
               </div>
             </div>
-            <button class="nav__toggle" id="navToggle" aria-label="Abrir menú">
+            <button class="nav__toggle" id="navToggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Abrir menú">
               <span></span><span></span><span></span>
             </button>
           </div>
@@ -68,7 +79,7 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil" inert>
       <a href="index.html">Inicio</a>
       <a href="services.html">Servicios</a>
       <a href="about.html">Nosotros</a>
@@ -89,9 +100,10 @@
         <a href="#" class="mobile-lang__btn lang-option" data-lang="it">🇮🇹 IT</a>
         <a href="#" class="mobile-lang__btn lang-option" data-lang="de">🇩🇪 DE</a>
       </div>
-    </div>
+    </nav>
 
     <!-- ========== PAGE HERO ========== -->
+    <main id="contenido" tabindex="-1">
     <section class="page-hero">
       <div class="container">
         <span class="page-hero__label">Conocimiento náutico</span>
@@ -119,11 +131,9 @@
           <!-- Artículo 1 -->
           <article class="blog-card reveal delay-1">
             <div class="blog-card__img-wrap">
-              <img
+              <img src="images/limpieza-submarina-768.webp" width="1536" height="1024"
+              alt="Ilustración de un buzo cepillando el casco de un velero en su amarre" loading="lazy" decoding="async"
                 class="blog-card__img"
-                src="https://images.pexels.com/photos/3098965/pexels-photo-3098965.jpeg?auto=compress&cs=tinysrgb&w=700&h=440&fit=crop"
-                alt="Buzo limpiando el casco de un velero bajo el agua"
-                loading="lazy"
               />
             </div>
             <div class="blog-card__body">
@@ -145,11 +155,9 @@
           <!-- Artículo 2 -->
           <article class="blog-card reveal delay-2">
             <div class="blog-card__img-wrap">
-              <img
+              <img src="images/buzos-bajo-el-agua.webp" width="960" height="1440"
+              alt="Buzos cerca de la superficie del agua" loading="lazy" decoding="async"
                 class="blog-card__img"
-                src="https://images.pexels.com/photos/3046628/pexels-photo-3046628.jpeg?auto=compress&cs=tinysrgb&w=700&h=440&fit=crop"
-                alt="Buzos profesionales trabajando bajo la superficie del mar"
-                loading="lazy"
               />
             </div>
             <div class="blog-card__body">
@@ -171,11 +179,9 @@
           <!-- Artículo 3 -->
           <article class="blog-card reveal delay-3">
             <div class="blog-card__img-wrap">
-              <img
+              <img src="images/embarcacion-en-el-mar.webp" width="960" height="640"
+              alt="Embarcación auxiliar en el mar" loading="lazy" decoding="async"
                 class="blog-card__img"
-                src="https://images.pexels.com/photos/3113238/pexels-photo-3113238.jpeg?auto=compress&cs=tinysrgb&w=700&h=440&fit=crop"
-                alt="Equipo de buceo profesional preparándose para inmersión"
-                loading="lazy"
               />
             </div>
             <div class="blog-card__body">
@@ -197,11 +203,9 @@
           <!-- Artículo 4 -->
           <article class="blog-card reveal delay-1">
             <div class="blog-card__img-wrap">
-              <img
+              <img src="images/buceo-desde-embarcacion.webp" width="960" height="643"
+              alt="Vista a nivel del agua con embarcaciones de apoyo" loading="lazy" decoding="async"
                 class="blog-card__img"
-                src="https://images.pexels.com/photos/18505543/pexels-photo-18505543.jpeg?auto=compress&cs=tinysrgb&w=700&h=440&fit=crop"
-                alt="Puerto deportivo de Valencia al atardecer"
-                loading="lazy"
               />
             </div>
             <div class="blog-card__body">
@@ -223,11 +227,9 @@
           <!-- Artículo 5 -->
           <article class="blog-card reveal delay-2">
             <div class="blog-card__img-wrap">
-              <img
+              <img src="images/buzo-en-inmersion.webp" width="960" height="720"
+              alt="Buzo durante una inmersión" loading="lazy" decoding="async"
                 class="blog-card__img"
-                src="https://images.pexels.com/photos/68737/pexels-photo-68737.jpeg?auto=compress&cs=tinysrgb&w=700&h=440&fit=crop"
-                alt="Velero navegando por las aguas del Mediterráneo"
-                loading="lazy"
               />
             </div>
             <div class="blog-card__body">
@@ -272,6 +274,8 @@
     </section>
 
     <!-- ========== FOOTER ========== -->
+    </main>
+
     <footer>
       <div class="container">
         <div class="footer__grid">
@@ -336,13 +340,13 @@
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
 
-    <script src="js/main.js"></script>
+    <script defer src="js/main.js"></script>
     <div id="google_translate_element" style="display:none"></div>
     <script>
       function googleTranslateElementInit() {
         new google.translate.TranslateElement({pageLanguage:'es',includedLanguages:'es,en,fr,it,de',autoDisplay:false},'google_translate_element');
       }
     </script>
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script async src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 </html>

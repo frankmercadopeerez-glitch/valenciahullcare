@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://valenciahullcare.com/sitemap.xml
+Sitemap: https://limpieza-cascos.vercel.app/sitemap.xml

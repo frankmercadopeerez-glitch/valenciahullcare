@@ -1,27 +1,35 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="es-ES">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sobre Nosotros | Valencia Hull Care · Valencia</title>
+    <title>Santiago Rodríguez, técnico naval | Valencia Hull Care</title>
     <meta
       name="description"
       content="Conoce a Santiago Rodríguez, técnico naval con más de 9 años de experiencia, fundador de Valencia Hull Care en Valencia. Buzo profesional certificado."
     />
     <meta name="robots" content="index, follow" />
-    <link
-      rel="canonical"
-      href="https://valenciahullcare.com/about.html"
-    />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23020c1e'/><text x='50%25' y='50%25' font-family='Georgia,serif' font-size='17' font-weight='700' fill='%23c49a1a' text-anchor='middle' dominant-baseline='central'>S</text></svg>"
-    />
+    <link rel="canonical" href="https://limpieza-cascos.vercel.app/about.html" />
+    <link rel="icon" type="image/svg+xml" href="images/vhc.svg" />
+    <meta name="theme-color" content="#060e12" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Valencia Hull Care" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://limpieza-cascos.vercel.app/about.html" />
+    <meta property="og:title" content="Santiago Rodríguez, técnico naval | Valencia Hull Care" />
+    <meta property="og:description" content="Conoce a Santiago Rodríguez, técnico naval con más de 9 años de experiencia, fundador de Valencia Hull Care en Valencia. Buzo profesional certificado." />
+    <meta property="og:image" content="https://limpieza-cascos.vercel.app/images/valencia-hull-care-social.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ilustración de un buzo limpiando el casco de un velero" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&amp;family=Inter:wght@300..800&amp;display=swap" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
     <!-- ========== NAVBAR ========== -->
     <nav class="navbar" id="navbar">
       <div class="container">
@@ -51,7 +59,7 @@
             <div class="lang-selector">
               <button
                 class="lang-btn"
-                id="langBtn"
+                id="langBtn" aria-controls="langDropdown" aria-expanded="false"
                 aria-label="Seleccionar idioma"
               >
                 <span id="activeLang">ES</span>
@@ -86,7 +94,7 @@
                 >
               </div>
             </div>
-            <button class="nav__toggle" id="navToggle" aria-label="Abrir menú">
+            <button class="nav__toggle" id="navToggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Abrir menú">
               <span></span><span></span><span></span>
             </button>
           </div>
@@ -94,7 +102,7 @@
       </div>
     </nav>
 
-    <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil" inert>
       <a href="index.html">Inicio</a>
       <a href="services.html">Servicios</a>
       <a href="about.html">Nosotros</a>
@@ -122,9 +130,10 @@
           >🇮🇹 IT</a
         >
       </div>
-    </div>
+    </nav>
 
     <!-- ========== PAGE HERO ========== -->
+    <main id="contenido" tabindex="-1">
     <section class="page-hero">
       <div class="container">
         <span class="page-hero__label">Quiénes somos</span>
@@ -158,10 +167,10 @@
         <div class="about-intro-grid">
           <!-- Imagen -->
           <div class="about-image reveal-left">
-            <img
-              src="https://images.pexels.com/photos/8826360/pexels-photo-8826360.jpeg?auto=compress&cs=tinysrgb&w=700&h=900&fit=crop"
-              alt="Santiago Rodríguez, fundador de Valencia Hull Care, con su equipo de buceo"
+            <img src="images/equipo-de-buceo.webp" width="960" height="720"
+              alt="Buzo con equipo junto a una embarcación" loading="lazy" decoding="async"
             />
+            <p class="media-note">Imagen de referencia.</p>
             <div class="about-image__badge">
               <strong>9+</strong>
               <span>Años de experiencia naval</span>
@@ -232,7 +241,7 @@
               <div>
                 <div
                   style="
-                    font-family: &quot;Cormorant Garant&quot;, serif;
+                    font-family: &quot;Cormorant Garamond&quot;, serif;
                     font-size: 1.75rem;
                     font-weight: 700;
                     color: var(--deep);
@@ -255,7 +264,7 @@
               <div>
                 <div
                   style="
-                    font-family: &quot;Cormorant Garant&quot;, serif;
+                    font-family: &quot;Cormorant Garamond&quot;, serif;
                     font-size: 1.75rem;
                     font-weight: 700;
                     color: var(--deep);
@@ -278,7 +287,7 @@
               <div>
                 <div
                   style="
-                    font-family: &quot;Cormorant Garant&quot;, serif;
+                    font-family: &quot;Cormorant Garamond&quot;, serif;
                     font-size: 1.75rem;
                     font-weight: 700;
                     color: var(--deep);
@@ -314,9 +323,8 @@
         </div>
 
         <div style="position: relative; margin-bottom: 3rem" class="reveal">
-          <img
-            src="https://images.pexels.com/photos/3098979/pexels-photo-3098979.jpeg?auto=compress&cs=tinysrgb&w=1200&h=500&fit=crop"
-            alt="Buzo profesional trabajando bajo el agua en el mar Mediterráneo"
+          <img src="images/buceo-desde-embarcacion.webp" width="960" height="643"
+              alt="Vista a nivel del agua con embarcaciones de apoyo" loading="lazy" decoding="async"
             style="
               border-radius: var(--radius-lg);
               width: 100%;
@@ -348,7 +356,7 @@
           >
             <p
               style="
-                font-family: &quot;Cormorant Garant&quot;, serif;
+                font-family: &quot;Cormorant Garamond&quot;, serif;
                 font-size: 1.4rem;
                 font-weight: 600;
                 font-style: italic;
@@ -776,7 +784,7 @@
             </div>
             <h4
               style="
-                font-family: &quot;Cormorant Garant&quot;, serif;
+                font-family: &quot;Cormorant Garamond&quot;, serif;
                 font-size: 1.4rem;
                 color: white;
                 margin-bottom: 0.75rem;
@@ -813,7 +821,7 @@
             </div>
             <h4
               style="
-                font-family: &quot;Cormorant Garant&quot;, serif;
+                font-family: &quot;Cormorant Garamond&quot;, serif;
                 font-size: 1.4rem;
                 color: white;
                 margin-bottom: 0.75rem;
@@ -849,7 +857,7 @@
             </div>
             <h4
               style="
-                font-family: &quot;Cormorant Garant&quot;, serif;
+                font-family: &quot;Cormorant Garamond&quot;, serif;
                 font-size: 1.4rem;
                 color: white;
                 margin-bottom: 0.75rem;
@@ -888,7 +896,7 @@
             </div>
             <h4
               style="
-                font-family: &quot;Cormorant Garant&quot;, serif;
+                font-family: &quot;Cormorant Garamond&quot;, serif;
                 font-size: 1.4rem;
                 color: white;
                 margin-bottom: 0.75rem;
@@ -957,6 +965,8 @@
     </section>
 
     <!-- ========== FOOTER ========== -->
+    </main>
+
     <footer>
       <div class="container">
         <div class="footer__grid">
@@ -1008,7 +1018,7 @@
           </div>
         </div>
         <div class="footer__bottom">
-          <p>&copy; 2025 Valencia Hull Care. Todos los derechos reservados.</p>
+          <p>&copy; 2026 Valencia Hull Care. Todos los derechos reservados.</p>
           <div class="footer__legal">
             <a href="terminos.html">Términos y Condiciones</a>
             <a href="terminos.html#privacidad">Privacidad</a>
@@ -1032,7 +1042,7 @@
       <span class="whatsapp-float__label">Solicitar presupuesto</span>
     </a>
 
-    <script src="js/main.js"></script>
+    <script defer src="js/main.js"></script>
     <!-- Google Translate (controlled by lang selector) -->
     <div id="google_translate_element" style="display: none"></div>
     <script>
@@ -1047,6 +1057,6 @@
         );
       }
     </script>
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script async src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 </html>

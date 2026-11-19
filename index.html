@@ -1,59 +1,39 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="es-ES">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Limpieza de Cascos en Valencia | Valencia Hull Care</title>
+    <title>Limpieza de cascos en Valencia desde 18 €/m | Valencia Hull Care</title>
 
-    <!-- SEO -->
     <meta
       name="description"
-      content="Limpieza profesional de cascos de veleros y yates en Valencia sin necesidad de varada. Buzo profesional certificado, zona de cobertura toda la Comunidad Valenciana. Servicio de suscripción mensual disponible."
-    />
-    <meta
-      name="keywords"
-      content="limpieza casco barco Valencia, buceo profesional Valencia, limpieza casco velero, mantenimiento náutico Valencia, pulido embarcaciones Valencia, limpieza casco yate, servicio buzo Valencia, marinero Valencia"
+      content="Limpieza submarina de cascos de veleros y yates en Valencia desde 18 € por metro de eslora. Sin varada, con fotos antes y después. Pide presupuesto."
     />
     <meta name="author" content="Valencia Hull Care" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://valenciahullcare.com/" />
 
-    <!-- Geo -->
-    <meta name="geo.region" content="ES-VC" />
-    <meta name="geo.placename" content="Valencia, España" />
 
-    <!-- OG -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://valenciahullcare.com/" />
-    <meta
-      property="og:title"
-      content="Limpieza de Cascos en Valencia | Valencia Hull Care"
-    />
-    <meta
-      property="og:description"
-      content="Limpieza profesional de cascos de veleros y yates en Valencia. Servicio de buceo profesional certificado. Suscripción mensual disponible."
-    />
-    <meta
-      property="og:image"
-      content="https://images.pexels.com/photos/3098965/pexels-photo-3098965.jpeg"
-    />
 
-    <!-- Favicon -->
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23020c1e'/><text x='50%25' y='50%25' font-family='Georgia,serif' font-size='17' font-weight='700' fill='%23c49a1a' text-anchor='middle' dominant-baseline='central'>S</text></svg>"
-    />
 
-    <!-- Preload -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap"
-    />
 
     <!-- Styles -->
+    <link rel="canonical" href="https://limpieza-cascos.vercel.app/" />
+    <link rel="icon" type="image/svg+xml" href="images/vhc.svg" />
+    <meta name="theme-color" content="#060e12" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Valencia Hull Care" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://limpieza-cascos.vercel.app/" />
+    <meta property="og:title" content="Limpieza de cascos en Valencia desde 18 €/m | Valencia Hull Care" />
+    <meta property="og:description" content="Limpieza submarina de cascos de veleros y yates en Valencia desde 18 € por metro de eslora. Sin varada, con fotos antes y después. Pide presupuesto." />
+    <meta property="og:image" content="https://limpieza-cascos.vercel.app/images/valencia-hull-care-social.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ilustración de un buzo limpiando el casco de un velero" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&amp;family=Inter:wght@300..800&amp;display=swap" />
     <link rel="stylesheet" href="css/styles.css" />
 
     <!-- Schema.org -->
@@ -61,9 +41,12 @@
       {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
+        "@id": "https://limpieza-cascos.vercel.app/#valencia-hull-care",
+        "image": "https://limpieza-cascos.vercel.app/images/valencia-hull-care-social.jpg",
+        "logo": "https://limpieza-cascos.vercel.app/images/vhc.svg",
         "name": "Valencia Hull Care",
         "description": "Servicio profesional de limpieza de cascos de veleros y yates en Valencia. Buzo profesional certificado con m\u00e1s de 9 a\u00f1os de experiencia naval.",
-        "url": "https://santiagobuceoprofesional.es",
+        "url": "https://limpieza-cascos.vercel.app/",
         "telephone": "+34611273268",
         "address": {
           "@type": "PostalAddress",
@@ -77,7 +60,7 @@
           "longitude": -0.3763
         },
         "areaServed": "Comunidad Valenciana",
-        "priceRange": "€€",
+        "priceRange": "Desde 18 € por metro de eslora",
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
@@ -102,6 +85,7 @@
     </script>
   </head>
   <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
     <!-- ========== NAVBAR ========== -->
     <nav class="navbar" id="navbar">
       <div class="container">
@@ -134,7 +118,7 @@
             <div class="lang-selector">
               <button
                 class="lang-btn"
-                id="langBtn"
+                id="langBtn" aria-controls="langDropdown" aria-expanded="false"
                 aria-label="Seleccionar idioma"
               >
                 <span id="activeLang">ES</span>
@@ -169,7 +153,7 @@
                 >
               </div>
             </div>
-            <button class="nav__toggle" id="navToggle" aria-label="Abrir menú">
+            <button class="nav__toggle" id="navToggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Abrir menú">
               <span></span><span></span><span></span>
             </button>
           </div>
@@ -178,7 +162,7 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil" inert>
       <a href="index.html">Inicio</a>
       <a href="services.html">Servicios</a>
       <a href="about.html">Nosotros</a>
@@ -210,16 +194,14 @@
           >🇩🇪 DE</a
         >
       </div>
-    </div>
+    </nav>
 
     <!-- ========== HERO ========== -->
+    <main id="contenido" tabindex="-1">
     <header class="hero">
       <div class="hero__bg">
-        <img
-          src="https://images.pexels.com/photos/3098965/pexels-photo-3098965.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
-          alt="Buzo bajo la quilla de un velero en el mar mediterráneo"
-          loading="eager"
-          fetchpriority="high"
+        <img src="images/limpieza-submarina-768.webp" width="1536" height="1024" srcset="images/limpieza-submarina-768.webp 768w, images/limpieza-submarina-1536.webp 1536w" sizes="100vw"
+              alt="Ilustración de un buzo cepillando el casco de un velero en su amarre" fetchpriority="high" decoding="async"
         />
         <div class="hero__overlay"></div>
       </div>
@@ -227,21 +209,15 @@
       <div class="hero__content">
         <div class="hero__badge">
           <span class="hero__badge__dot"></span>
-          Buceo Certificado
+          Valencia y Comunidad Valenciana
         </div>
         <h1 class="hero__title">
-          Tu casco, siempre<br />
-          <em>limpio y protegido.</em>
+          Limpieza de cascos<br />
+          <em>sin sacar tu barco del agua.</em>
         </h1>
         <p class="hero__sub">
-          Limpieza profesional de cascos de veleros, yates y todo tipo de
-          embarcaciones <strong>en el agua</strong>, sin varada ni interrupción.
-          Cobertura en toda la Comunidad Valenciana.
-        </p>
-        <p class="hero__sub" style="margin-top: 1rem; font-size: 0.95rem">
-          Eliminación completa de algas, percebes y bioincrustaciones mediante
-          buceo profesional, siempre cuidando tu obra viva. Trabajamos con la
-          embarcación amarrada — sin varada, sin trámites, sin tiempo perdido.
+          Retiramos algas e incrustaciones de tu velero o yate en su amarre.
+          Recibe fotos del antes y el después de la limpieza.
         </p>
         <div class="hero__actions">
           <a
@@ -257,15 +233,11 @@
             </svg>
             Solicitar Presupuesto
           </a>
-          <a href="#servicios" class="btn btn--outline">Ver Servicios</a>
+          <a href="#precios" class="btn btn--outline">Ver tarifa de limpieza</a>
         </div>
+        <p class="hero__rate">Desde <strong>18 €</strong> por metro de eslora</p>
       </div>
 
-      <div class="hero__wave">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" fill="#000000">
-          <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" />
-        </svg>
-      </div>
     </header>
 
     <!-- ========== STATS BAR ========== -->
@@ -273,22 +245,20 @@
       <div class="container">
         <div class="stats-bar__inner">
           <div>
-            <div class="stat__value" data-target="120" data-suffix="+">0</div>
-            <div class="stat__label">Cascos limpiados</div>
+            <div class="stat__value">En el agua</div>
+            <div class="stat__label">Limpieza en tu amarre</div>
           </div>
           <div>
-            <div class="stat__value" data-target="9" data-suffix="+ años">
-              0
-            </div>
-            <div class="stat__label">Experiencia naval</div>
+            <div class="stat__value">Obra viva</div>
+            <div class="stat__label">Casco, hélice, timón y quilla</div>
           </div>
           <div>
-            <div class="stat__value" data-target="8" data-suffix="">0</div>
-            <div class="stat__label">Marinas atendidas</div>
+            <div class="stat__value">Antes y después</div>
+            <div class="stat__label">Informe fotográfico</div>
           </div>
           <div>
-            <div class="stat__value" data-target="100" data-suffix="%">0</div>
-            <div class="stat__label">Clientes satisfechos</div>
+            <div class="stat__value">A tu medida</div>
+            <div class="stat__label">Visitas puntuales o periódicas</div>
           </div>
         </div>
       </div>
@@ -298,8 +268,7 @@
     <section id="servicios" class="section section--dark">
       <div class="container">
         <div class="section__header">
-          <span class="section__label">Lo que hacemos</span>
-          <h2 class="section__title">Servicios Especializados</h2>
+          <h2 class="section__title">Limpieza y mantenimiento de embarcaciones</h2>
           <div class="divider"></div>
           <p class="section__sub">
             Cuidamos el casco de tu embarcación con técnica naval y resultados
@@ -441,9 +410,8 @@
       <div class="container">
         <div class="why-grid">
           <div class="reveal-left">
-            <img
-              src="https://images.pexels.com/photos/3046628/pexels-photo-3046628.jpeg?auto=compress&cs=tinysrgb&w=800&h=900&fit=crop"
-              alt="Buzos profesionales trabajando bajo la superficie del mar"
+            <img src="images/buzos-bajo-el-agua.webp" width="960" height="1440"
+              alt="Buzos cerca de la superficie del agua" loading="lazy" decoding="async"
               style="
                 border-radius: 12px;
                 box-shadow: 0 20px 60px rgba(2, 12, 30, 0.18);
@@ -649,7 +617,7 @@
             <span class="price-callout__label">Limpieza de Casco</span>
             <div class="price-callout__price">
               <span class="price-callout__from">desde</span>
-              <span class="price-callout__amount">€18</span>
+              <span class="price-callout__amount">18&nbsp;€</span>
               <span class="price-callout__unit">/ metro de eslora</span>
             </div>
             <p class="price-callout__note">
@@ -675,14 +643,12 @@
               Presupuesto personalizado sin compromiso
             </div>
           </div>
-          <div>
+          <div class="price-callout__cta">
             <a
-              href="https://wa.me/34611273268?text=Hola%20Santiago%2C%20quiero%20saber%20el%20precio%20para%20limpiar%20el%20casco%20de%20mi%20embarcación"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contacto"
               class="btn btn--primary"
             >
-              Solicitar Presupuesto
+              Calcular precio orientativo
             </a>
           </div>
         </div>
@@ -1063,9 +1029,8 @@
             </div>
           </div>
           <div>
-            <img
-              src="https://images.pexels.com/photos/3113238/pexels-photo-3113238.jpeg?auto=compress&cs=tinysrgb&w=700&h=600&fit=crop"
-              alt="Equipo de buceo preparándose para una inmersión profesional"
+            <img src="images/embarcacion-en-el-mar.webp" width="960" height="640"
+              alt="Embarcación auxiliar en el mar" loading="lazy" decoding="async"
               style="
                 border-radius: var(--radius-lg);
                 box-shadow: var(--shadow-lg);
@@ -1099,7 +1064,7 @@
                 En el mar Mediterráneo, la bioincrustación (algas, percebes,
                 mejillones y otros organismos) se adhiere al casco de forma muy
                 rápida, especialmente en verano. Un casco sucio puede aumentar
-                la resistencia hidrodinámica hasta un 30%, lo que se traduce en
+                la resistencia al navegar, lo que se traduce en
                 más consumo de combustible y menos velocidad. Además, las
                 incrustaciones dañan la pintura antifouling si se acumulan en
                 exceso.
@@ -1259,7 +1224,7 @@
                   style="
                     font-size: 1rem;
                     color: white;
-                    font-family: &quot;Cormorant Garant&quot;, serif;
+                    font-family: &quot;Cormorant Garamond&quot;, serif;
                     font-size: 1.2rem;
                   "
                   class="contact__info-value"
@@ -1342,7 +1307,7 @@
           <div class="contact__form-area">
             <h3
               style="
-                font-family: &quot;Cormorant Garant&quot;, serif;
+                font-family: &quot;Cormorant Garamond&quot;, serif;
                 font-size: 1.75rem;
                 font-weight: 700;
                 color: var(--text);
@@ -1358,25 +1323,31 @@
                 margin-bottom: 2rem;
               "
             >
-              Rellena el formulario y te contactamos directamente por WhatsApp.
+            Indica la eslora y la marina. Revisarás el mensaje en WhatsApp antes de enviarlo.
             </p>
 
-            <form class="contact-form" novalidate>
+            <form class="contact-form" hidden>
               <div class="form-grid-2">
                 <div class="form-group">
-                  <label class="form-label">Nombre</label>
+                  <label class="form-label" for="quote-name">Nombre (opcional)</label>
                   <input
                     type="text"
                     name="nombre"
+                    id="quote-name"
+                    autocomplete="name"
+                    maxlength="80"
                     class="form-input"
                     placeholder="Tu nombre"
                   />
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Teléfono</label>
+                  <label class="form-label" for="quote-phone">Teléfono (opcional)</label>
                   <input
                     type="tel"
                     name="telefono"
+                    id="quote-phone"
+                    autocomplete="tel"
+                    maxlength="25"
                     class="form-input"
                     placeholder="+34 6XX XXX XXX"
                   />
@@ -1384,26 +1355,33 @@
               </div>
               <div class="form-grid-2">
                 <div class="form-group">
-                  <label class="form-label">Eslora de la embarcación</label>
+                  <label class="form-label" for="quote-length">Eslora de la embarcación</label>
                   <div class="input-unit-group">
                     <input
                       type="text"
                       name="eslora"
+                      id="quote-length"
+                      inputmode="decimal"
+                      required
+                      maxlength="10"
                       class="form-input"
-                      placeholder="Ej: 38, 45, 55..."
+                      placeholder="Ej. 10,5"
                     />
-                    <select name="unidad_eslora" class="input-unit-select">
-                      <option value="pies">pies</option>
+                    <select name="unidad_eslora" class="input-unit-select" aria-label="Unidad de eslora">
                       <option value="metros">metros</option>
+                      <option value="pies">pies</option>
                     </select>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Marina / Puerto</label>
-                  <select name="ubicacion" class="form-select">
+                  <label class="form-label" for="quote-marina">Marina o puerto</label>
+                  <select name="ubicacion" id="quote-marina" class="form-select" required>
                     <option value="">Selecciona marina</option>
                     <option>Marina de Valencia</option>
                     <option>Real Club Náutico de Valencia</option>
+                    <option>Valencia Mar</option>
+                    <option>Pobla Marina</option>
+                    <option>Port Saplaya</option>
                     <option>Puerto Deportivo de Sagunto</option>
                     <option>Club Náutico de Cullera</option>
                     <option>Puerto Deportivo de Gandía</option>
@@ -1413,11 +1391,15 @@
                   </select>
                 </div>
               </div>
-              <div class="form-group">
-                <label class="form-label">Servicio de interés</label>
+              <div class="form-group" data-other-marina hidden>
+                <label class="form-label" for="quote-other-marina">Nombre de la marina o puerto</label>
+                <input type="text" class="form-input" id="quote-other-marina" name="otra_marina" maxlength="100" />
+              </div>
+              <fieldset class="form-group form-services">
+                <legend class="form-label">Servicio de interés</legend>
                 <div class="checkbox-grid">
                   <label class="checkbox-item"
-                    ><input type="checkbox" value="Limpieza de casco" />
+                    ><input type="checkbox" value="Limpieza de casco" checked />
                     Limpieza de casco</label
                   >
                   <label class="checkbox-item"
@@ -1433,11 +1415,14 @@
                     general</label
                   >
                 </div>
-              </div>
+              </fieldset>
+              <output class="quote-estimate" for="quote-length" aria-live="polite" hidden></output>
               <div class="form-group">
-                <label class="form-label">Mensaje adicional (opcional)</label>
+                <label class="form-label" for="quote-message">Mensaje adicional (opcional)</label>
                 <textarea
                   name="mensaje"
+                  id="quote-message"
+                  maxlength="600"
                   class="form-textarea"
                   placeholder="Cuéntanos más sobre tu embarcación o lo que necesitas..."
                 ></textarea>
@@ -1447,7 +1432,7 @@
                 class="btn btn--primary form-submit"
                 style="justify-content: center; margin-top: 0.5rem"
               >
-                Enviar por WhatsApp
+                Preparar mensaje en WhatsApp
                 <svg
                   width="16"
                   height="16"
@@ -1466,6 +1451,8 @@
     </section>
 
     <!-- ========== FOOTER ========== -->
+    </main>
+
     <footer>
       <div class="container">
         <div class="footer__grid">
@@ -1524,7 +1511,7 @@
         </div>
 
         <div class="footer__bottom">
-          <p>&copy; 2025 Valencia Hull Care. Todos los derechos reservados.</p>
+          <p>&copy; 2026 Valencia Hull Care. Todos los derechos reservados.</p>
           <div class="footer__legal">
             <a href="terminos.html">Términos y Condiciones</a>
             <a href="terminos.html#privacidad">Privacidad</a>
@@ -1549,7 +1536,7 @@
       <span class="whatsapp-float__label">Solicitar presupuesto</span>
     </a>
 
-    <script src="js/main.js"></script>
+    <script defer src="js/main.js"></script>
     <!-- Google Translate (controlled by lang selector) -->
     <div id="google_translate_element" style="display: none"></div>
     <script>
@@ -1564,6 +1551,6 @@
         );
       }
     </script>
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script async src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 </html>

@@ -1,27 +1,49 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="es-ES">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Servicios y Tarifas | Valencia Hull Care · Valencia</title>
+    <title>Limpieza submarina, tarifas y planes | Valencia Hull Care</title>
     <meta
       name="description"
-      content="Limpieza de cascos de veleros y yates en Valencia. Tarifas según eslora, suscripción mensual y pulido de superficies. Presupuesto en menos de 2 horas."
+      content="Consulta la tarifa de limpieza de casco desde 18 € por metro de eslora, los planes mensuales y el pulido de superficies en Valencia."
     />
     <meta name="robots" content="index, follow" />
-    <link
-      rel="canonical"
-      href="https://valenciahullcare.com/services.html"
-    />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23020c1e'/><text x='50%25' y='50%25' font-family='Georgia,serif' font-size='17' font-weight='700' fill='%23c49a1a' text-anchor='middle' dominant-baseline='central'>S</text></svg>"
-    />
+    <link rel="canonical" href="https://limpieza-cascos.vercel.app/services.html" />
+    <link rel="icon" type="image/svg+xml" href="images/vhc.svg" />
+    <meta name="theme-color" content="#060e12" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Valencia Hull Care" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://limpieza-cascos.vercel.app/services.html" />
+    <meta property="og:title" content="Limpieza submarina, tarifas y planes | Valencia Hull Care" />
+    <meta property="og:description" content="Consulta la tarifa de limpieza de casco desde 18 € por metro de eslora, los planes mensuales y el pulido de superficies en Valencia." />
+    <meta property="og:image" content="https://limpieza-cascos.vercel.app/images/valencia-hull-care-social.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ilustración de un buzo limpiando el casco de un velero" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..700;1,400..700&amp;family=Inter:wght@300..800&amp;display=swap" />
     <link rel="stylesheet" href="css/styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Limpieza submarina de cascos",
+        "serviceType": "Limpieza de cascos en el amarre",
+        "url": "https://limpieza-cascos.vercel.app/services.html",
+        "provider": {
+          "@id": "https://limpieza-cascos.vercel.app/#valencia-hull-care",
+          "name": "Valencia Hull Care"
+        },
+        "areaServed": { "@type": "AdministrativeArea", "name": "Comunidad Valenciana" }
+      }
+    </script>
   </head>
   <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
     <!-- ========== NAVBAR ========== -->
     <nav class="navbar" id="navbar">
       <div class="container">
@@ -51,7 +73,7 @@
             <div class="lang-selector">
               <button
                 class="lang-btn"
-                id="langBtn"
+                id="langBtn" aria-controls="langDropdown" aria-expanded="false"
                 aria-label="Seleccionar idioma"
               >
                 <span id="activeLang">ES</span>
@@ -86,7 +108,7 @@
                 >
               </div>
             </div>
-            <button class="nav__toggle" id="navToggle" aria-label="Abrir menú">
+            <button class="nav__toggle" id="navToggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Abrir menú">
               <span></span><span></span><span></span>
             </button>
           </div>
@@ -94,7 +116,7 @@
       </div>
     </nav>
 
-    <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil" inert>
       <a href="index.html">Inicio</a>
       <a href="services.html">Servicios</a>
       <a href="about.html">Nosotros</a>
@@ -122,9 +144,10 @@
           >🇮🇹 IT</a
         >
       </div>
-    </div>
+    </nav>
 
     <!-- ========== PAGE HERO ========== -->
+    <main id="contenido" tabindex="-1">
     <section class="page-hero">
       <div class="container">
         <span class="page-hero__label">Nuestros servicios</span>
@@ -133,9 +156,13 @@
           <em style="font-style: italic; color: var(--gold-lt)">Tarifas</em>
         </h1>
         <p class="page-hero__sub">
-          Transparencia total. Sin sorpresas. El precio depende del tamaño de tu
-          embarcación.
+          Limpieza de casco desde 18 € por metro de eslora. Consulta también los
+          planes de mantenimiento y el pulido de superficies.
         </p>
+        <div class="page-hero__actions">
+          <a class="btn btn--primary" href="index.html#contacto">Calcular precio orientativo</a>
+          <a class="btn btn--outline" href="#suscripcion">Ver planes mensuales</a>
+        </div>
       </div>
     </section>
 
@@ -166,10 +193,9 @@
                 margin-bottom: 1.25rem;
               "
             >
-              El servicio más importante que puedes hacer por tu embarcación.
-              Sin varada, sin grúas y sin interrumpir tu temporada de
-              navegación. Nos ponemos el equipo, nos zambullimos y dejamos el
-              casco como el primer día.
+              Limpiamos la obra viva con tu embarcación en el amarre. La
+              intervención incluye casco, hélice, timón y quilla, con fotos
+              para que puedas revisar el resultado.
             </p>
             <p
               style="
@@ -179,11 +205,9 @@
                 margin-bottom: 2rem;
               "
             >
-              La limpieza elimina bioincrustaciones (algas, percebes, balanos,
-              hidrozoos) que generan resistencia hidrodinámica, aumentan el
-              consumo de combustible y deterioran la pintura antifouling. Un
-              casco limpio puede mejorar la eficiencia entre un
-              <strong>15–30%</strong>.
+              Las algas y otras incrustaciones aumentan la resistencia al
+              navegar. Revisamos el estado del casco y adaptamos la limpieza
+              al recubrimiento existente.
             </p>
 
             <div
@@ -360,9 +384,8 @@
           </div>
 
           <div class="reveal-right">
-            <img
-              src="https://images.pexels.com/photos/3046628/pexels-photo-3046628.jpeg?auto=compress&cs=tinysrgb&w=800&h=900&fit=crop"
-              alt="Buzos profesionales realizando limpieza de casco de embarcación en el agua"
+            <img src="images/limpieza-submarina-768.webp" width="1536" height="1024"
+              alt="Ilustración de un buzo cepillando el casco de un velero en su amarre" loading="lazy" decoding="async"
               style="
                 border-radius: var(--radius-lg);
                 box-shadow: var(--shadow-xl);
@@ -391,7 +414,7 @@
             <span class="price-callout__label">Limpieza de Casco · Precio Base</span>
             <div class="price-callout__price">
               <span class="price-callout__from">desde</span>
-              <span class="price-callout__amount">€18</span>
+              <span class="price-callout__amount">18&nbsp;€</span>
               <span class="price-callout__unit">/ metro de eslora</span>
             </div>
             <p class="price-callout__note">
@@ -757,9 +780,8 @@
       <div class="container">
         <div class="grid-2col">
           <div class="reveal-left">
-            <img
-              src="https://images.pexels.com/photos/18505543/pexels-photo-18505543.jpeg?auto=compress&cs=tinysrgb&w=800&h=700&fit=crop"
-              alt="Superficie de embarcación siendo pulida y restaurada para recuperar el brillo original"
+            <img src="images/buzo-en-inmersion.webp" width="960" height="720"
+              alt="Buzo durante una inmersión" loading="lazy" decoding="async"
               style="
                 border-radius: var(--radius-lg);
                 box-shadow: var(--shadow-xl);
@@ -999,7 +1021,7 @@
                   display: flex;
                   align-items: center;
                   justify-content: center;
-                  font-family: &quot;Cormorant Garant&quot;, serif;
+                  font-family: &quot;Cormorant Garamond&quot;, serif;
                   font-size: 1.3rem;
                   font-weight: 700;
                   flex-shrink: 0;
@@ -1049,7 +1071,7 @@
                   display: flex;
                   align-items: center;
                   justify-content: center;
-                  font-family: &quot;Cormorant Garant&quot;, serif;
+                  font-family: &quot;Cormorant Garamond&quot;, serif;
                   font-size: 1.3rem;
                   font-weight: 700;
                   flex-shrink: 0;
@@ -1099,7 +1121,7 @@
                   display: flex;
                   align-items: center;
                   justify-content: center;
-                  font-family: &quot;Cormorant Garant&quot;, serif;
+                  font-family: &quot;Cormorant Garamond&quot;, serif;
                   font-size: 1.3rem;
                   font-weight: 700;
                   flex-shrink: 0;
@@ -1150,7 +1172,7 @@
                   display: flex;
                   align-items: center;
                   justify-content: center;
-                  font-family: &quot;Cormorant Garant&quot;, serif;
+                  font-family: &quot;Cormorant Garamond&quot;, serif;
                   font-size: 1.3rem;
                   font-weight: 700;
                   flex-shrink: 0;
@@ -1201,7 +1223,7 @@
                   display: flex;
                   align-items: center;
                   justify-content: center;
-                  font-family: &quot;Cormorant Garant&quot;, serif;
+                  font-family: &quot;Cormorant Garamond&quot;, serif;
                   font-size: 1.3rem;
                   font-weight: 700;
                   flex-shrink: 0;
@@ -1286,6 +1308,8 @@
     </section>
 
     <!-- ========== FOOTER ========== -->
+    </main>
+
     <footer>
       <div class="container">
         <div class="footer__grid">
@@ -1338,7 +1362,7 @@
           </div>
         </div>
         <div class="footer__bottom">
-          <p>&copy; 2025 Valencia Hull Care. Todos los derechos reservados.</p>
+          <p>&copy; 2026 Valencia Hull Care. Todos los derechos reservados.</p>
           <div class="footer__legal">
             <a href="terminos.html">Términos y Condiciones</a>
             <a href="terminos.html#privacidad">Privacidad</a>
@@ -1362,7 +1386,7 @@
       <span class="whatsapp-float__label">Solicitar presupuesto</span>
     </a>
 
-    <script src="js/main.js"></script>
+    <script defer src="js/main.js"></script>
     <!-- Google Translate (controlled by lang selector) -->
     <div id="google_translate_element" style="display: none"></div>
     <script>
@@ -1377,6 +1401,6 @@
         );
       }
     </script>
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script async src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 </html>

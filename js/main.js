@@ -21,46 +21,70 @@
   const toggle = document.querySelector(".nav__toggle");
   const mobileMenu = document.querySelector(".mobile-menu");
   if (toggle && mobileMenu) {
-    toggle.addEventListener("click", () => {
-      const open = mobileMenu.classList.toggle("open");
+    const setMenuOpen = (open) => {
+      mobileMenu.classList.toggle("open", open);
+      mobileMenu.inert = !open;
       toggle.classList.toggle("active", open);
-      document.body.style.overflow = open ? "hidden" : "";
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+      document.body.classList.toggle("menu-open", open);
+    };
+    setMenuOpen(false);
+    toggle.addEventListener("click", () => {
+      const open = !mobileMenu.classList.contains("open");
+      setMenuOpen(open);
+      if (open) mobileMenu.querySelector("a")?.focus();
     });
-    // Close on any link click
     mobileMenu.querySelectorAll("a").forEach((a) => {
-      a.addEventListener("click", () => {
-        mobileMenu.classList.remove("open");
-        toggle.classList.remove("active");
-        document.body.style.overflow = "";
-      });
+      a.addEventListener("click", () => setMenuOpen(false));
     });
-    // Close on Escape
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && mobileMenu.classList.contains("open")) {
-        mobileMenu.classList.remove("open");
-        toggle.classList.remove("active");
-        document.body.style.overflow = "";
+      if (!mobileMenu.classList.contains("open")) return;
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        toggle.focus();
+      } else if (e.key === "Tab") {
+        const links = mobileMenu.querySelectorAll("a");
+        if (!e.shiftKey && document.activeElement === links[links.length - 1]) {
+          e.preventDefault();
+          toggle.focus();
+        } else if (e.shiftKey && document.activeElement === toggle) {
+          e.preventDefault();
+          links[links.length - 1]?.focus();
+        }
       }
+    });
+    matchMedia("(min-width: 1025px)").addEventListener("change", (e) => {
+      if (e.matches) setMenuOpen(false);
     });
   }
 
   /* ---- FAQ ACCORDION ---- */
-  document.querySelectorAll(".faq-toggle").forEach((btn) => {
+  document.querySelectorAll(".faq-toggle").forEach((btn, index) => {
+    const item = btn.closest(".faq-item");
+    const answer = item.querySelector(".faq-answer");
+    answer.id ||= `faq-answer-${index + 1}`;
+    btn.setAttribute("aria-controls", answer.id);
+    btn.setAttribute("aria-expanded", String(item.classList.contains("open")));
+    answer.inert = !item.classList.contains("open");
     btn.addEventListener("click", () => {
-      const item = btn.closest(".faq-item");
-      const answer = item.querySelector(".faq-answer");
       const wasOpen = item.classList.contains("open");
 
       // Close all
       document.querySelectorAll(".faq-item.open").forEach((el) => {
         el.classList.remove("open");
-        el.querySelector(".faq-answer").classList.remove("open");
+        const panel = el.querySelector(".faq-answer");
+        panel.classList.remove("open");
+        panel.inert = true;
+        el.querySelector(".faq-toggle").setAttribute("aria-expanded", "false");
       });
 
       // Toggle clicked
       if (!wasOpen) {
         item.classList.add("open");
         answer.classList.add("open");
+        answer.inert = false;
+        btn.setAttribute("aria-expanded", "true");
       }
     });
   });
@@ -69,7 +93,8 @@
   const revealEls = document.querySelectorAll(
     ".reveal, .reveal-left, .reveal-right",
   );
-  if (revealEls.length) {
+  if (revealEls.length && "IntersectionObserver" in window &&
+      !matchMedia("(prefers-reduced-motion: reduce)").matches) {
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -79,22 +104,65 @@
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -50px 0px" },
+      { threshold: 0, rootMargin: "0px 0px -24px 0px" },
     );
+    document.documentElement.classList.add("has-reveals");
     revealEls.forEach((el) => io.observe(el));
   }
 
   /* ---- ACTIVE NAV LINK (highlight current page) ---- */
-  const path = window.location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll(".nav__link").forEach((a) => {
-    const href = a.getAttribute("href") || "";
-    if (href === path || (path === "" && href === "index.html")) {
+  const path = location.pathname === "/" ? "/index.html" : location.pathname;
+  document.querySelectorAll(".nav__link, .mobile-menu a").forEach((a) => {
+    const url = new URL(a.href, location.href);
+    if (url.origin !== location.origin || url.hash) return;
+    if (url.pathname === path) {
+      a.classList.add("active");
+      a.setAttribute("aria-current", "page");
+    } else if (path.startsWith("/blog/") && url.pathname === "/blog.html") {
       a.classList.add("active");
     }
   });
 
   /* ---- CONTACT FORM → WHATSAPP ---- */
   document.querySelectorAll(".contact-form").forEach((form) => {
+    const lengthInput = form.elements.eslora;
+    const unitInput = form.elements.unidad_eslora;
+    const marinaInput = form.elements.ubicacion;
+    const otherMarina = form.elements.otra_marina;
+    const hullCleaning = form.querySelector('input[value="Limpieza de casco"]');
+    const estimate = form.querySelector(".quote-estimate");
+    const euros = new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" });
+
+    const getLength = () => {
+      const value = lengthInput.value.trim();
+      if (!/^\d+(?:[.,]\d{1,2})?$/.test(value)) return 0;
+      return Number(value.replace(",", "."));
+    };
+    const updateEstimate = () => {
+      const length = getLength();
+      lengthInput.setCustomValidity(lengthInput.value && !length
+        ? "Introduce una eslora mayor que cero, con hasta dos decimales."
+        : "");
+      estimate.hidden = !length || !hullCleaning.checked;
+      if (!estimate.hidden) {
+        const meters = length * (unitInput.value === "pies" ? 0.3048 : 1);
+        estimate.textContent = `Limpieza de casco desde ${euros.format(meters * 18)}. Orientativo: confirmamos el precio según el estado del casco y el puerto.`;
+      }
+    };
+    const updateMarina = () => {
+      const isOther = marinaInput.value === "Otra marina";
+      otherMarina.closest("[data-other-marina]").hidden = !isOther;
+      otherMarina.required = isOther;
+      otherMarina.disabled = !isOther;
+    };
+    lengthInput.addEventListener("input", updateEstimate);
+    unitInput.addEventListener("change", updateEstimate);
+    hullCleaning.addEventListener("change", updateEstimate);
+    marinaInput.addEventListener("change", updateMarina);
+    updateEstimate();
+    updateMarina();
+    form.hidden = false;
+
     form.addEventListener("submit", (e) => {
       e.preventDefault();
 
@@ -104,8 +172,7 @@
       const eslora = form.querySelector('[name="eslora"]')?.value.trim() || "";
       const unidad =
         form.querySelector('[name="unidad_eslora"]')?.value || "pies";
-      const ubicacion =
-        form.querySelector('[name="ubicacion"]')?.value.trim() || "";
+      const ubicacion = otherMarina.disabled ? marinaInput.value : otherMarina.value.trim();
       const mensaje =
         form.querySelector('[name="mensaje"]')?.value.trim() || "";
 
@@ -115,7 +182,12 @@
         checks.push(cb.value);
       });
 
-      let text = `Hola Santiago, vi vuestra web y me interesa contratar un servicio.`;
+      if (!ubicacion) {
+        otherMarina.value = "";
+        otherMarina.reportValidity();
+        return;
+      }
+      let text = "Hola Santiago, me gustaría pedir un presupuesto para mi embarcación.";
       if (nombre) text += `\n\nNombre: ${nombre}`;
       if (telefono) text += `\nTeléfono: ${telefono}`;
       if (eslora) text += `\nEslora: ${eslora} ${unidad}`;
@@ -130,44 +202,6 @@
       );
     });
   });
-
-  /* ---- STATS COUNTER ANIMATION ---- */
-  function animateCounter(el) {
-    const target = parseFloat(el.dataset.target);
-    const isDecimal = !Number.isInteger(target);
-    const suffix = el.dataset.suffix || "";
-    const duration = 1800;
-    const start = performance.now();
-
-    const tick = (now) => {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-      const value = target * eased;
-      const num = isDecimal ? value.toFixed(1) : Math.round(value);
-      el.innerHTML = suffix
-        ? `${num}<span class="stat__sfx">${suffix}</span>`
-        : `${num}`;
-      if (progress < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  }
-
-  const statsIO = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          statsIO.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.5 },
-  );
-
-  document
-    .querySelectorAll(".stat__value[data-target]")
-    .forEach((el) => statsIO.observe(el));
 
   /* ---- SUBSCRIPTION PLAN SELECTOR ---- */
   document.querySelectorAll(".sub-plan").forEach((plan) => {
@@ -186,26 +220,35 @@
   const activeLangEl = document.getElementById("activeLang");
 
   if (langBtn && langDropdown) {
+    const setLanguageOpen = (open) => {
+      langDropdown.classList.toggle("open", open);
+      langBtn.setAttribute("aria-expanded", String(open));
+    };
+    setLanguageOpen(false);
     // Detect current language from googtrans cookie
     const getGoogLang = () => {
       const match = document.cookie.match(/googtrans=\/es\/([a-z]{2})/i);
       return match ? match[1].toUpperCase() : "ES";
     };
-    const flagMap = { ES: "🇪🇸", EN: "🇬🇧", FR: "🇫🇷", IT: "🇮🇹", DE: "🇩🇪" };
     const cur = getGoogLang();
-    if (activeLangEl)
-      activeLangEl.textContent = (flagMap[cur] || "") + " " + cur;
+    if (activeLangEl) activeLangEl.textContent = cur;
     document.querySelectorAll(".lang-option").forEach((opt) => {
       if (opt.dataset.lang.toUpperCase() === cur) opt.classList.add("active");
     });
 
     langBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      langDropdown.classList.toggle("open");
+      setLanguageOpen(!langDropdown.classList.contains("open"));
     });
     document.addEventListener("click", () =>
-      langDropdown.classList.remove("open"),
+      setLanguageOpen(false),
     );
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && langDropdown.classList.contains("open")) {
+        setLanguageOpen(false);
+        langBtn.focus();
+      }
+    });
 
     document.querySelectorAll(".lang-option").forEach((opt) => {
       opt.addEventListener("click", (e) => {
